@@ -19,7 +19,7 @@ class PostFactory extends Factory
         return [
             "title" => fake()->sentence(),
             "content" => fake()->paragraph(),
-            "user_id" => \App\Models\User::inRandomOrder()->first()->id,
+            // "user_id" => \App\Models\User::inRandomOrder()->first()->id,
         ];
     }
 }

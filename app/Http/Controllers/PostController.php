@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index(Request $request)
     {
-        $posts = Post::with('user')->get();
+        $posts = Post::with('users')->get();
         dd($posts->toArray());
     }
 }
