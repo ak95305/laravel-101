@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 
+use App\Mail\WelcomeMail;
+use Illuminate\Support\Facades\Mail;
+
 class CustomerController extends Controller
 {
     /**
@@ -28,12 +31,15 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        Customer::create([
+        $customer = Customer::create([
             "first_name" => $request->first_name,
             "last_name" => $request->last_name,
             "email" => $request->email,
             "phonenumber" => $request->phonenumber,
         ]);
+
+        Mail::to($customer->email)->queue(new WelcomeMail($customer));
+
         dd("done");
     }
 
