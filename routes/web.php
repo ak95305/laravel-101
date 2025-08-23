@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::resource('customer', CustomerController::class);
+Route::get('/customer/load-more', [App\Http\Controllers\CustomerController::class, 'loadMore'])->name('customer.loadMore');

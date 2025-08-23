@@ -6,15 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
-    protected $guarded = [];
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'email',
+        'phonenumber'
+    ];
 
-    public function getFirstNameAttribute()
-    {
-        return "Hello";
-    }
-
-    public function setLastNameAttribute()
-    {
-        $this->attributes["last_name"] = "Hello";
-    }
+    // Removed the accessor and mutator that were overriding values
 }
